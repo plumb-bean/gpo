@@ -1,6 +1,6 @@
 import-module grouppolicy
 
-[xml]$dd=get-gporeport "Logoff" -ReportType XML
+[xml]$dd=get-gporeport "Internal Security Policy" -ReportType XML
 
 $a=$dd.gpo.computer.extensiondata.extension.account[0].name
 $b=$dd.gpo.computer.extensiondata.extension.account[0].settingnumber
