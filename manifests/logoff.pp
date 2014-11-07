@@ -1,7 +1,5 @@
 class gpo::logoff {
-  file { ['C:\ProgramData\PuppetLabs\facter','C:\ProgramData\PuppetLabs\facter\facts.d']:
-    ensure => directory,
-  } ->
+  include gpo
 
   file { 'C:\ProgramData\PuppetLabs\facter\facts.d\logoff.ps1':
     source => 'puppet:///modules/gpo/logoff.ps1',
@@ -9,6 +7,6 @@ class gpo::logoff {
   }
 
   if $::logoff != 1 {
-    notify { "Out of compliance": }
+    notify { "Out of compliance: Logoff": }
   }
 } 
